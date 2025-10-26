@@ -1,0 +1,618 @@
+/* Variables for easy theme switching */
+:root {
+    --primary-color: #007BFF; /* Main Accent Blue */
+    --secondary-color: #2c3e50; /* Dark text/background */
+    --background-light: #f7f9fc;
+    --background-dark: #1f2937; /* Dark Footer/Section */
+    --text-dark: #333; /* Default body text color */
+    --text-light: #f4f4f4;
+    --white-bg: #fffeb4d5; /* Explicit White */
+    --card-shadow: 0 4px 12px rgba(106, 25, 238, 0.644);
+    --transition-speed: 0.3s;
+}
+
+/* --- DARK MODE Variables (Theme 2) --- */
+body.dark-theme {
+    /* Accent Color (Primary) - NEW GREEN */
+    --primary-color: #4CAF50; 
+
+    /* Secondary Color (Headings/Primary Text on Dark BG) - LIGHT */
+    --secondary-color: #ffffff; 
+
+    /* Light Background (Sections like Hero/Skills) - DARK GRAY */
+    --background-light: #121212; 
+
+    /* Dark Background (Footer/Deepest Dark) - BLACK */
+    --background-dark: #0a0a0a; 
+
+    /* Dark Text (Body Text/Paragraphs) - LIGHT GRAY/OFF-WHITE */
+    --text-dark: #e0e0e0; 
+
+    /* Light Text (Text on Accent Backgrounds) - DARK */
+    --text-light: #121212; 
+
+    /* White Background (Cards/Inner Elements) - VERY DARK GRAY */
+    --white-bg: #1e1e1e; 
+
+    /* Card Shadow (Subtle white glow on dark background) */
+    --card-shadow: 0 4px 15px rgba(19, 255, 70, 0.4); 
+}
+
+/* Base Styles (Ensure smooth color transition for all elements) */
+body, h1, h2, h3, p, a, #main-header, .skill-category, .project-card, .contact-form, .main-footer {
+    transition: background-color var(--transition-speed), color var(--transition-speed), border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background: var(--background-light);
+    scroll-behavior: smooth;
+}
+
+/* Typography */
+h1, h2, h3 {
+    font-family: 'Roboto', sans-serif;
+    color: var(--secondary-color);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    font-weight: 700;
+    color: var(--secondary-color); /* Ensure heading color updates */
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 4px;
+    background: var(--primary-color);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* Header & Navigation */
+#main-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: var(--white-bg);
+    box-shadow: var(--card-shadow);
+    z-index: 1000;
+}
+
+/* OPTION 1: METALLIC EMBOSS STYLE */
+.logo {
+    font-size: 2.8rem; /* আকার আরও কিছুটা বাড়ানো হলো */
+    font-weight: 900;
+    letter-spacing: -2px;
+    
+    /* বেস কালার: হালকা রূপালী/গ্রে (Metallic Base) */
+    color: #e61e1e; 
+    
+    /* 🌟 অত্যাধুনিক শ্যাডো: 3D এবং Emboss ইফেক্ট তৈরি করা */
+    text-shadow: 
+        -1px -1px 1px #fff,       /* উপরের-বাম দিক থেকে হালকা আলো */
+        1px 1px 1px #808080,      /* নিচের-ডান দিক থেকে হালকা ছায়া */
+        4px 4px 10px rgba(235, 41, 41, 0.5); /* লোগোটিকে পেজ থেকে তুলে ধরার জন্য গভীর শ্যাডো */
+    
+    /* ইন্টারেক্টিভিটি */
+    transition: all 0.4s ease-out;
+    cursor: pointer;
+}
+
+/* 🚀 হোভার স্টাইল (এটিকে থিম কালারে উজ্জ্বল করা) */
+.logo:hover {
+    color: var(--primary-color); /* থিম কালার দিয়ে পুরো লোগোকে উজ্জ্বল করা */
+    text-shadow: 
+        1px 1px 10px var(--primary-color), /* থিম কালারের উজ্জ্বল গ্লো */
+        0 0 15px rgba(0, 0, 0, 0.8);
+    transform: translateY(-2px); /* নজরে আসার জন্য উপরে উঠানো */
+}
+
+/* 🌙 ডার্ক থিম স্পেসিফিক স্টাইল */
+body.dark-theme .logo {
+    color: #03e603; /* ডার্ক মোডে আরও উজ্জ্বল সাদা-রূপালী */
+    text-shadow: 
+        -1px -1px 1px #fff, 
+        1px 1px 1px #111, /* গাঢ় ছায়া */
+        4px 4px 10px rgba(80, 189, 30, 0.8);
+}
+
+#main-header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+#main-header nav ul li a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 600;
+    padding: 10px 15px;
+    transition: color var(--transition-speed);
+}
+
+#main-header nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+.mobile-menu-toggle {
+    display: none; 
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    cursor: pointer;
+}
+
+/* Theme Toggle Button */
+#theme-toggle {
+    margin-left: 20px;
+    padding: 10px 15px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+/* Buttons */
+.cta-button, .secondary-button, .project-link-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all var(--transition-speed);
+    margin-top: 15px;
+    text-transform: uppercase;
+}
+
+.cta-button {
+    background: var(--primary-color);
+    color: var(--text-light);
+    border: 2px solid var(--primary-color);
+}
+
+.cta-button:hover {
+    background: #0056b3; /* Darker Blue (Light mode) */
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+    transform: translateY(-2px);
+}
+body.dark-theme .cta-button:hover {
+     background: #388e3c; /* Darker Green (Dark mode) */
+}
+
+
+.secondary-button {
+    background: none;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.secondary-button:hover {
+    background: var(--primary-color);
+    color: var(--text-light);
+}
+
+/* Pulse Effect */
+.pulse-effect {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(0, 123, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0); }
+}
+
+/* Hero Section */
+.hero-section {
+    padding-top: 120px; 
+    padding-bottom: 80px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: var(--background-light);
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 500px;
+    padding: 20px;
+    animation: fadeInLeft 1s ease-out;
+}
+
+.hero-content h1 {
+    font-size: 2.80rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content .greeting {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.hero-content .tagline {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+
+.hero-image-container {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    border: 8px solid var(--white-bg);
+    box-shadow: 0 10px 40px rgba(30, 255, 0, 0.2);
+    animation: fadeInRight 2s ease-out;
+}
+body.dark-theme .hero-image-container {
+    border: 8px solid var(--background-light);
+}
+
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-shadow: #007BFF;
+}
+
+.social-icons a {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    margin-right: 15px;
+}
+
+.social-icons a:hover {
+    color: var(--primary-color);
+}
+
+/* Sections */
+.section {
+    padding: 80px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--background-light);
+}
+
+/* About Section */
+.about-section {
+    background: var(--white-bg);
+}
+
+.about-grid {
+    display: flex;
+    gap: 40px;
+    text-align: left;
+    align-items: center;
+}
+
+.personal-details {
+    flex: 1;
+    background: var(--background-light);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+}
+
+.personal-details ul {
+    list-style: none;
+}
+
+.personal-details ul li {
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+.personal-details ul li i {
+    color: var(--primary-color);
+    margin-right: 10px;
+}
+
+
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.skill-category {
+    background: var(--white-bg);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+    transition: transform var(--transition-speed);
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+    border-bottom: 5px solid var(--primary-color);
+}
+
+.skill-category i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+/* Projects Section */
+.project-card {
+    background: var(--white-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+}
+
+.project-info {
+    padding: 20px;
+}
+
+.project-tags span {
+    display: inline-block;
+    background: var(--background-light);
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+}
+
+/* Contact Section Styles - Optimized for Dual Theme */
+
+.contact-form {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 10px;
+    /* এই দুটি ভ্যারিয়েবল ঠিক আছে, যা কার্ডের ব্যাকগ্রাউন্ড এবং শ্যাডো কন্ট্রোল করে */
+    background: var(--white-bg);
+    box-shadow: var(--card-shadow);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid var(--text-dark); /* বর্ডার কালার --text-dark দিয়ে সেট করুন */
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1rem;
+    
+    /* ব্যাকগ্রাউন্ড হবে --background-light, টেক্সট কালার হবে --text-dark */
+    background: var(--background-light);
+    color: var(--text-dark);
+    transition: all var(--transition-speed); /* ট্রানজিশন যোগ করুন */
+}
+
+/* প্লেসহোল্ডার টেক্সট স্টাইল (এটি উভয় থিমে সামঞ্জস্যপূর্ণ করবে) */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: var(--text-dark); /* টেক্সটের মতো একই রঙ ব্যবহার করুন */
+    opacity: 0.7; /* এটিকে কিছুটা হালকা করে দিন */
+}
+
+/* ফোকাস করার সময় বর্ডার কালার পরিবর্তন (ঐচ্ছিক, কিন্তু আকর্ষণীয়) */
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(var(--primary-color), 0.3); /* সেমি-ট্রান্সপারেন্ট শ্যাডো */
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+/* Footer Styles */
+/* Footer Styles - (Cleaned and Dual-Theme Optimized) */
+.main-footer {
+    /* Background always set to --background-dark for a striking contrast */
+    background: var(--background-dark);
+    color: var(--text-dark); /* text-dark will be LIGHT in dark mode, DARK in light mode */
+    padding: 40px 5%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    padding-bottom: 20px;
+    
+    /* Dynamic Border: Ensure visibility in both modes */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15); 
+}
+/* Ensure the border color is slightly visible even in light mode's dark footer */
+body:not(.dark-theme) .footer-content {
+    border-bottom-color: rgba(255, 255, 255, 0.2); 
+}
+
+
+.footer-col {
+    flex-basis: 30%;
+}
+
+.footer-col h4 {
+    color: var(--primary-color); /* Headings use the accent color */
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.footer-col p {
+    color: var(--text-dark); /* Ensure paragraph text is visible */
+    font-size: 0.95rem;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+/* Footer Links Styling */
+.footer-col ul li a {
+    color: var(--text-dark); /* Links should be same color as normal text for consistency */
+    text-decoration: none;
+    transition: color var(--transition-speed);
+    display: block;
+    margin-bottom: 8px;
+}
+
+.footer-col ul li a:hover {
+    color: var(--primary-color);
+    transform: translateX(5px); /* সুন্দর একটি ট্রানজিশন যোগ করা হলো */
+}
+
+/* Social Icons Styling */
+.social-links-footer a {
+    color: var(--primary-color); /* Icons use the primary accent color */
+    font-size: 1.2rem;
+    margin-right: 15px;
+    transition: color var(--transition-speed), transform var(--transition-speed);
+}
+
+.social-links-footer a:hover {
+    color: var(--text-dark); /* Hover effect makes it change to the lighter text color */
+    transform: scale(1.1);
+}
+
+/* Copyright Styling */
+.copyright {
+    text-align: center;
+    font-size: 0.9rem;
+    padding-top: 20px;
+    color: var(--text-dark); /* Copyright text uses the general footer text color */
+    opacity: 0.8; /* এটিকে একটু ম্লান করা হয়েছে */
+}
+
+/* --- Mobile Specific Adjustment --- */
+@media (max-width: 992px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+    .footer-col {
+        flex-basis: 100%;
+    }
+}
+
+/* --- Mobile Specific Styles --- */
+@media (max-width: 992px) {
+    /* ... (rest of the mobile media query styles are unchanged) ... */
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        min-height: auto;
+        padding-top: 100px;
+    }
+
+    .hero-image-container {
+        margin-top: 30px;
+        order: -1; 
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    #main-header nav {
+        position: fixed;
+        top: 0;
+        right: -100%; 
+        width: 70%;
+        height: 100vh;
+        background: var(--background-dark);
+        padding-top: 80px;
+        transition: right 0.4s ease-in-out;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+    }
+    body.dark-theme #main-header nav {
+         background: #000;
+    }
+
+    #main-header nav.active {
+        right: 0; 
+    }
+
+    #main-header nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #main-header nav ul li a {
+        color: var(--text-dark);
+        display: block;
+        padding: 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    body.dark-theme #main-header nav ul li a {
+        color: var(--text-dark);
+    }
+
+    .mobile-menu-toggle {
+        display: block; 
+    }
+
+    .about-grid {
+        flex-direction: column;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+    .footer-col {
+        flex-basis: 100%;
+    }
+}
+/* Keyframe Animations */
+@keyframes fadeInLeft {
+    0% { opacity: 0; transform: translateX(-50px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+    0% { opacity: 0; transform: translateX(50px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+/* Header Scroll/Shrink Effect */
+#main-header.header-scrolled {
+    padding: 10px 5%; /* স্ক্রল করার পর প্যাডিং কমানো */
+    background: var(--white-bg); /* নিশ্চিত করা হলো ব্যাকগ্রাউন্ড কঠিন (Solid) */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15); /* শ্যাডো আরও স্পষ্ট করা হলো */
+}
+
+/* ডার্ক থিমে স্ক্রল করার সময় */
+body.dark-theme #main-header.header-scrolled {
+    background: var(--background-dark);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}

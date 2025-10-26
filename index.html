@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swadhin's web</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/Assets/css/style.css">
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="logo">SKT</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Profile</a></li>
+                <li><a href="#skills">Skill</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contract</a></li>
+            </ul>
+        </nav>
+        <button id="theme-toggle" class="cta-button" aria-label="Toggle Dark Mode">
+            <i class="fas fa-moon"></i>
+        </button>
+        <button class="mobile-menu-toggle" aria-label="Toggle Navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <span class="greeting">Wellcome, I'am</span>
+                <h1>Swadhin K Tanmoy</h1>
+                <p class="tagline">A passionate Full-Stack Developer & Designer who believes in creating beautiful, functional, and meaningful digital experiences.</p>
+                <!-- <div class="social-icons">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fas fa-envelope"></i></a>
+                </div> -->
+                <a href="#projects" class="cta-button pulse-effect">See more..</a>
+            </div>
+            <div class="hero-image-container">
+                <img src="/Assets/images/WhatsApp Image 2025-10-01 at 14.41.18_bf6efaef.jpg" alt="Your Profile Picture" class="profile-photo">
+            </div>
+        </section>
+
+        <section id="about" class="section about-section">
+            <h2 class="section-title">Profile</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>I am a dedicated professional with 4 years of experience in the field of development and design. My goal is to analyze complex problems and create user-friendly solutions. I believe that technology is a powerful medium to express creativity and bring ideas to life.</p>
+                    <p>My work approach emphasizes learning new technologies and collaborating effectively in teams. I’m particularly interested in the HTML, CSS, JavaScript, and Python ecosystem, where I love building creative and efficient solutions.</p>
+                    <a href="/Assets/pdf/Document 5.pdf" class="secondary-button" target="_blank">My CV</a>
+                </div>
+                <div class="personal-details">
+                    <h3>Personal info</h3>
+                    <ul>
+                        <li><i class="fas fa-user-circle"></i>Swadhin Karmokar Tanmoy</li>
+                        <li><i class="fas fa-map-marker-alt"></i>Barguna, Barishal, Bangladesh</li>
+                        <li><i class="fas fa-envelope"></i>swadhink2020@gmail</li>
+                        <li><i class="fas fa-phone-alt"></i>01961847110</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section skills-section">
+            <h2 class="section-title">Skill</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <i class="fas fa-code"></i>
+                    <h3>Front-end developer</h3>
+                    <p>Html, Css, Figma, React.js</p>
+                </div>
+                <div class="skill-category">
+                    <i class="fas fa-server"></i>
+                    <h3>Back-end and database</h3>
+                    <p>JS, Python, Node.js</p>
+                </div>
+                <div class="skill-category">
+                    <i class="fas fa-tools"></i>
+                    <h3>Tools and Plartform</h3>
+                    <p>Git/GitHub, Figma</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section projects-section">
+            <h2 class="section-title">Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <!-- <img src="project1-thumb.jpg" alt="Project 1"> -->
+                    <div class="project-info">
+                      <h3>1st project</h3>
+                        <p>my personal E-commers plartform</p>
+                        <div class="project-tags"><span>#Html and css</span> <span>#js</span></div>
+                        <a href="https://swadhin78-coder.github.io/demo-app/" target="_blank" class="project-link-btn">See<i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- <div class="project-card">
+                    <img src="project2-thumb.jpg" alt="Project 2">
+                    <div class="project-info">
+                        <h3>UX/UI ডিজাইন স্টাডি</h3>
+                        <p>একটি মোবাইল অ্যাপ্লিকেশনের জন্য Figma-তে তৈরি সম্পূর্ণ ইউএক্স ডিজাইন প্রোটোটাইপ।</p>
+                        <div class="project-tags"><span>#Figma</span> <span>#UXDesign</span> <span>#MobileApp</span></div>
+                        <a href="#" target="_blank" class="project-link-btn">দেখুন <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="project3-thumb.jpg" alt="Project 3">
+                    <div class="project-info">
+                        <h3>কাস্টম CMS</h3>
+                        <p>পাইথন (Django) ব্যবহার করে ডেটা বিশ্লেষণ ও কন্টেন্ট ম্যানেজমেন্টের জন্য তৈরি।</p>
+                        <div class="project-tags"><span>#Python</span> <span>#Django</span> <span>#SQL</span></div>
+                        <a href="#" target="_blank" class="project-link-btn">দেখুন <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div> -->
+        </section>
+
+        <section id="contact" class="section contact-section">
+            <h2 class="section-title">Contract</h2>
+            <p>You’re welcome to contact me for any new opportunities or creative collaborations.</p>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea rows="5" placeholder="Your Comment" required></textarea>
+                <button type="submit" class="cta-button">Send</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+            <div class="footer-col">
+                <h4>Links</h4>
+                <ul>
+                    <li><a href="#about">Profile</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="mailto:youremail@example.com">E-Mail</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Follow me on</h4>
+                <div class="social-links-footer">
+                    <a href="https://www.facebook.com/share/1AdJBVAZjy/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/swadhin_78_?igsh=MWVreWhmYjZteTVoOQ=="><i class="fab fa-instagram"></i></a>
+                    <a href="@swadhin_78"><i class="fab fa-x"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; <span id="year"></span> Swadhin karmokar || profile
+        </div>
+    </footer>
+    <script src="/Assets/js/index.js"></script>
+</body>
+</html>
